@@ -49,6 +49,8 @@ To run tests, run the following command
 
 - [VSCode](https://code.visualstudio.com/)
 - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ## Tech Stack
 
