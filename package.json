@@ -6,8 +6,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint --ext .ts,.vue src && npm -C infra run lint",
-    "lint-fix": "eslint --ext .ts,.vue src --fix && npm -C infra run lint-fix"
+    "lint": "eslint --ext .ts,.vue src infra",
+    "lint-fix": "eslint --ext .ts,.vue src infra --fix"
   },
   "dependencies": {
     "vue": "^3.2.25"
