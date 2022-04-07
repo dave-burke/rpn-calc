@@ -3,6 +3,7 @@
 An RPN calculator that's easy to install and use from a mobile phone, even when you're offline. It is a work in progress.
 
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+[![CI](https://github.com/dave-burke/rpn-calc/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/dave-burke/rpn-calc/actions/workflows/ci.yml)
 
 ## Features
 
