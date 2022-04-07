@@ -1,6 +1,16 @@
 {
+  "folders": [
+    {
+      "path": "infra"
+    },
+    {
+      "path": "frontend"
+    }
+  ],
+  "settings": {
     "eslint.format.enable": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     }
+  }
 }
