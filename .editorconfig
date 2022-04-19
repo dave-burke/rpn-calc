@@ -26,7 +26,7 @@ indent_style = space
 # JavaScript, JSON, JSX, JavaScript Modules, TypeScript
 # https://github.com/feross/standard
 # https://prettier.io
-[*.{cjs,js,json,jsx,mjs,ts,tsx}]
+[*.{cjs,js,json,jsx,mjs,ts,tsx,*.code-workspace}]
 indent_size = 2
 indent_style = space
 
