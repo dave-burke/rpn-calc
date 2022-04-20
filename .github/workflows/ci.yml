@@ -5,12 +5,9 @@ on:
 
 jobs:
 
-  deploy:
-
+  build-frontend:
     runs-on: ubuntu-latest
-
     steps:
-
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -19,12 +16,28 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: "Install dependencies"
-        run: npm ci --workspaces
+      - name: "Install frontend dependencies"
+        run: npm ci --workspace=frontend
 
       - name: "Lint"
-        run: npm run lint --workspaces
+        run: npm run lint --workspace=frontend
 
       - name: "Build frontend"
         run: npm run build --workspace=frontend
 
+  build-infra:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: "Install infra dependencies"
+        run: npm ci --workspace=infra
+
+      - name: "Lint"
+        run: npm run lint --workspace=infra
