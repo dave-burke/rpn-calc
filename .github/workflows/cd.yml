@@ -1,11 +1,14 @@
-name: PR Checks
+name: Deploy to dev
 
 on:
-  pull_request:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
 
-  build-frontend:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,31 +19,14 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: "Install frontend dependencies"
-        run: npm ci --workspace=frontend
+      - name: "Install dependencies"
+        run: npm ci --workspaces
 
       - name: "Lint"
-        run: npm run lint --workspace=frontend
+        run: npm run lint --workspaces
 
       - name: "Build frontend"
         run: npm run build --workspace=frontend
-
-  preview-infra:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: "Install infra dependencies"
-        run: npm ci --workspace=infra
-
-      - name: "Lint"
-        run: npm run lint --workspace=infra
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -49,10 +35,23 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - uses: pulumi/actions@v3
+      - name: Deploy infrastructure to dev
+        id: pulumi
+        uses: pulumi/actions@v3
         with:
-          command: preview
+          command: up
           stack-name: dev
           work-dir: infra
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Deploy frontend build to S3 bucket
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ steps.pulumi.outputs.bucketName }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SOURCE_DIR: 'frontend/dist'
