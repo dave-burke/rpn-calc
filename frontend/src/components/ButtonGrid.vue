@@ -1,41 +1,77 @@
 <script setup lang="ts">
-import CalcButton from './CalcButton.vue'
+
+function handleClick (e: Event) {
+  const button = e.target as HTMLElement
+  const text = button.innerText
+  console.log(`Clicked '${text}'`)
+}
 </script>
 
 <template>
-  <div class="container">
-    <div class="numberpad">
-      <CalcButton>7</CalcButton>
-      <CalcButton>8</CalcButton>
-      <CalcButton>9</CalcButton>
-
-      <CalcButton>4</CalcButton>
-      <CalcButton>5</CalcButton>
-      <CalcButton>6</CalcButton>
-
-      <CalcButton>1</CalcButton>
-      <CalcButton>2</CalcButton>
-      <CalcButton>3</CalcButton>
-
-      <CalcButton>0</CalcButton>
-      <CalcButton>.</CalcButton>
-      <CalcButton>(-)</CalcButton>
+  <div
+    class="grid"
+    @click="handleClick"
+  >
+    <div class="clipboard subgrid">
+      <div>Copy</div>
+      <div>Paste</div>
+    </div>
+    <div class="stack subgrid">
+      <div>Drop</div>
+      <div>Swap</div>
+    </div>
+    <div class="numpad subgrid">
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>0</div>
+      <div>.</div>
+      <div>(-)</div>
+    </div>
+    <div class="ops subgrid">
+      <div>+</div>
+      <div>-</div>
+      <div>*</div>
+      <div>/</div>
     </div>
   </div>
 </template>
 
-<style scoped>
-div {
+<style>
+.grid {
+  text-align: center;
+  display: grid;
+  grid-template:
+    "clp clp cmd cmd"
+    "num num num ops"
+    "num num num ops"
+    "num num num ops"
+    "num num num ops";
+}
+.subgrid > div {
   border: 1px solid black;
 }
-.container {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(5, minmax(1rem, 2rem))
-}
-.numberpad {
-  grid-column: 2 / 5;
+.subgrid {
   display: grid;
   grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+.clipboard {
+  grid-area: clp;
+}
+.stack {
+  grid-area: cmd;
+}
+.numpad {
+  grid-area: num;
+}
+.ops{
+  grid-area: ops;
 }
 </style>
