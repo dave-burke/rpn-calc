@@ -14,4 +14,8 @@ html, body, #app {
   height: 100%;
   margin: 0;
 }
+#app {
+  max-width: 20rem;
+  margin: auto;
+}
 </style>

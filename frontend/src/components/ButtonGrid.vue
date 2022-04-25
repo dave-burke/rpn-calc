@@ -60,8 +60,6 @@ function handleClick (e: Event) {
 <style>
 .grid {
   height: 100%;
-  text-align: center;
-  align-items: center;
   display: grid;
   grid-template:
     "clp clp clp cmd cmd" 1fr
