@@ -61,6 +61,7 @@ function handleClick (e: Event) {
 .grid {
   height: 100%;
   text-align: center;
+  align-items: center;
   display: grid;
   grid-template:
     "clp clp clp cmd cmd" 1fr
@@ -71,10 +72,10 @@ function handleClick (e: Event) {
     "op2 del ent ent ent" 1fr;
 }
 .subgrid > div {
-  border: 1px solid black;
 }
 .subgrid {
   display: grid;
+  align-items: center;
   grid-template-columns: subgrid;
   grid-template-rows: subgrid;
 }
@@ -95,10 +96,8 @@ function handleClick (e: Event) {
 }
 .del {
   grid-area: del;
-  border: 1px solid black;
 }
 .ent {
   grid-area: ent;
-  border: 1px solid black;
 }
 </style>
