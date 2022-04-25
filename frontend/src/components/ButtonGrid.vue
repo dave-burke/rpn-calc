@@ -61,6 +61,8 @@ function handleClick (e: Event) {
 .grid {
   height: 100%;
   display: grid;
+  color: white;
+  background-color: #222222;
   grid-template:
     "clp clp clp cmd cmd" 1fr
     "op2 num num num ops" 1fr
