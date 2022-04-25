@@ -13,6 +13,7 @@ function handleClick (e: Event) {
     @click="handleClick"
   >
     <div class="clipboard subgrid">
+      <div>Cut</div>
       <div>Copy</div>
       <div>Paste</div>
     </div>
@@ -40,19 +41,34 @@ function handleClick (e: Event) {
       <div>*</div>
       <div>/</div>
     </div>
+    <div class="op2 subgrid">
+      <div>1/x</div>
+      <div>*10</div>
+      <div>/10</div>
+      <div>X^N</div>
+      <div>√x</div>
+    </div>
+    <div class="del">
+      del
+    </div>
+    <div class="ent">
+      enter
+    </div>
   </div>
 </template>
 
 <style>
 .grid {
+  height: 100%;
   text-align: center;
   display: grid;
   grid-template:
-    "clp clp cmd cmd"
-    "num num num ops"
-    "num num num ops"
-    "num num num ops"
-    "num num num ops";
+    "clp clp clp cmd cmd" 1fr
+    "op2 num num num ops" 1fr
+    "op2 num num num ops" 1fr
+    "op2 num num num ops" 1fr
+    "op2 num num num ops" 1fr
+    "op2 del ent ent ent" 1fr;
 }
 .subgrid > div {
   border: 1px solid black;
@@ -73,5 +89,16 @@ function handleClick (e: Event) {
 }
 .ops{
   grid-area: ops;
+}
+.op2{
+  grid-area: op2;
+}
+.del {
+  grid-area: del;
+  border: 1px solid black;
+}
+.ent {
+  grid-area: ent;
+  border: 1px solid black;
 }
 </style>
