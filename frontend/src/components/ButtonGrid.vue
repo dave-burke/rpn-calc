@@ -69,11 +69,14 @@ function handleClick (e: Event) {
     "op2 num num num ops" 1fr
     "op2 del ent ent ent" 1fr;
 }
-.subgrid > div {
+.subgrid > div, .del, .ent {
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .subgrid {
   display: grid;
-  align-items: center;
   grid-template-columns: subgrid;
   grid-template-rows: subgrid;
 }
