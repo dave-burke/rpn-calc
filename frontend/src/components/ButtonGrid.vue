@@ -65,7 +65,9 @@ function handleClick (e: Event) {
   cursor: default;
   display: grid;
   color: white;
+  gap: .25rem;
   background-color: #222222;
+  padding: .25rem;
   grid-template:
     "clp clp clp cmd cmd" 1fr
     "op2 num num num ops" 1fr
@@ -75,10 +77,11 @@ function handleClick (e: Event) {
     "op2 del ent ent ent" 1fr;
 }
 .subgrid > div, .del, .ent {
-  border: 1px solid white;
+  background-color: #444444;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 2px;
 }
 .subgrid {
   display: grid;
