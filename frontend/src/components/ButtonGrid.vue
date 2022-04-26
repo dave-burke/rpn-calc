@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { defineEmits } from 'vue'
+
+const emit = defineEmits(['buttonClick'])
 
 function handleClick (e: Event) {
   const button = e.target as HTMLElement
   const text = button.innerText
-  console.log(`Clicked '${text}'`)
+  emit('buttonClick', text)
 }
 </script>
 
