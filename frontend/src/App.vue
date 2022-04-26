@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import ButtonGrid from './components/ButtonGrid.vue'
 import NumberStack from './components/NumberStack.vue'
+
+const entries = ref(['3', '2', '1'])
 </script>
 
 <template>
-  <NumberStack id="stack" />
+  <NumberStack
+    id="stack"
+    :entries="entries"
+  />
   <ButtonGrid id="buttons" />
 </template>
 
