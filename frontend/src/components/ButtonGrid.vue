@@ -59,7 +59,6 @@ function handleClick (e: Event) {
 
 <style>
 .grid {
-  height: 100%;
   display: grid;
   color: white;
   background-color: #222222;
