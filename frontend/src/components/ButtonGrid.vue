@@ -91,6 +91,11 @@ function handleClick (e: Event) {
 .clipboard {
   grid-area: clp;
 }
+.clipboard div {
+  cursor: not-allowed;
+  color: #666666;
+  background-color: #999999;
+}
 .stack {
   grid-area: cmd;
 }
