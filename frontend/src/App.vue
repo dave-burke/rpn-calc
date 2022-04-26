@@ -19,6 +19,7 @@ const entries = ref(['3', '2', '1'])
   box-sizing: border-box;
 }
 html, body, #app {
+  font-family: 'Courier New', Courier, monospace;
   height: 100%;
   margin: 0;
 }
