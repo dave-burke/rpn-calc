@@ -3,13 +3,16 @@
 An RPN calculator that's easy to install and use from a mobile phone, even when you're offline. It is a work in progress.
 
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
-[![Infrastructure CI](https://github.com/dave-burke/rpn-calc/actions/workflows/infra-ci.yml/badge.svg?branch=main)](https://github.com/dave-burke/rpn-calc/actions/workflows/infra-ci.yml)
-[![Frontend CI](https://github.com/dave-burke/rpn-calc/actions/workflows/frontend-ci.yml/badge.svg?branch=main)](https://github.com/dave-burke/rpn-calc/actions/workflows/frontend-ci.yml)
+[![CI/CD](https://github.com/dave-burke/rpn-calc/actions/workflows/cd.yml/badge.svg?branch=main)](https://github.com/dave-burke/rpn-calc/actions/workflows/cd.yml)
 
 ## Features
 
 - [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
-- Offline first
+- Ergonomic layout for right-handed mobile use
+
+### Future enhancements
+
+- Offline first PWA (Possibly using [Vite PWA Plugin](https://vite-plugin-pwa.netlify.app/))
 
 ## Contributing
 
@@ -32,19 +35,35 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install
+  npm install --workspaces
 ```
 
-Start the server
+Start the frontend server
 
 ```bash
-  npm run dev
+  npm run dev --workspace=frontend
 ```
 
-To run tests, run the following command
+Browse to http://localhost:3000
+
+### Deploy
+
+Deploy AWS infrastructure (you need the [Pulumi](https://www.pulumi.com/) CLI installed and configured)
 
 ```bash
-  npm run test
+  pulumi up
+```
+
+Build the app
+
+```
+  npm run build --workspace=frontend
+```
+
+Deploy the app
+
+```
+  aws s3 sync --acl public-read --follow-symlinks --delete frontend/dist [your S3 bucket URL]
 ```
 
 ### Recommended IDE Setup
@@ -56,10 +75,24 @@ To run tests, run the following command
 
 ## Tech Stack
 
-- Vue3
-- Typescript
-- Vite
-- Vitest
+### Frontend
+
+- [Vue3](https://vuejs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+
+Also, while not exactly part of the "tech stack," one of my motivations for making this was to get better at using [CSS Grid layout](https://css-tricks.com/snippets/css/complete-guide-grid/).
+
+### Infrastructure
+
+- [Pulumi](https://www.pulumi.com/)
+
+### Future additions
+
+- [MathJS](https://github.com/josdejong/mathjs)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Playwright](https://playwright.dev/)
+- [Vitest](https://vitest.dev/)
 
 ## Acknowledgements
 
