@@ -163,6 +163,7 @@ function handleButtonClick (button: string) {
   box-sizing: border-box;
 }
 html, body, #app {
+  background-color: #FCFCFC;
   font-family: 'Courier New', Courier, monospace;
   height: 100%;
   margin: 0;

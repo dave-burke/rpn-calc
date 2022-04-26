@@ -64,7 +64,7 @@ function handleClick (e: Event) {
 .grid {
   cursor: default;
   display: grid;
-  color: white;
+  color: #DDDDDD;
   font-weight: bold;
   gap: .25rem;
   background-color: #222222;
