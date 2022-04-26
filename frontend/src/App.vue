@@ -170,7 +170,7 @@ html, body, #app {
   padding: .1rem
 }
 #app {
-  max-width: 20rem;
+  max-width: 30rem;
   margin: auto;
   display: flex;
   flex-direction: column;
