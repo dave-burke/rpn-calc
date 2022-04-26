@@ -15,19 +15,71 @@ function handleClick (e: Event) {
     class="grid"
     @click="handleClick"
   >
-    <div class="disabled">
+    <div class="clipboard">
       Cut
-    </div><div class="disabled">
+    </div><div class="clipboard">
       Copy
-    </div> <div class="disabled">
+    </div> <div class="clipboard">
       Paste
-    </div><div>Drop</div><div>Swap</div>
+    </div><div class="command">
+      Drop
+    </div><div class="command">
+      Swap
+    </div>
 
-    <div>1/x</div><div>7</div><div>8</div><div>9</div><div>+</div>
-    <div>*10</div><div>4</div><div>5</div><div>6</div><div>-</div>
-    <div>/10</div><div>1</div><div>2</div><div>3</div><div>*</div>
-    <div>X^N</div><div>0</div><div>.</div><div>(-)</div><div>/</div>
-    <div>√x</div><div>del</div><div class="ent">
+    <div class="op">
+      1/x
+    </div><div class="numpad">
+      7
+    </div><div class="numpad">
+      8
+    </div><div class="numpad">
+      9
+    </div><div class="op">
+      +
+    </div>
+
+    <div class="op">
+      *10
+    </div><div class="numpad">
+      4
+    </div><div class="numpad">
+      5
+    </div><div class="numpad">
+      6
+    </div><div class="op">
+      -
+    </div>
+
+    <div class="op">
+      /10
+    </div><div class="numpad">
+      1
+    </div><div class="numpad">
+      2
+    </div><div class="numpad">
+      3
+    </div><div class="op">
+      *
+    </div>
+
+    <div class="op">
+      X^N
+    </div><div class="numpad">
+      0
+    </div><div class="numpad">
+      .
+    </div><div class="numpad">
+      (-)
+    </div><div class="op">
+      /
+    </div>
+
+    <div class="op">
+      √x
+    </div><div class="command">
+      del
+    </div><div class="ent command">
       enter
     </div>
   </div>
@@ -39,9 +91,9 @@ function handleClick (e: Event) {
   display: grid;
   color: #DDDDDD;
   font-weight: bold;
-  gap: .25rem;
-  background-color: #222222;
-  padding: .25rem;
+  gap: .5rem;
+  background-color: #444444;
+  padding: .5rem;
   grid-template:
     "clp clp clp cmd cmd" 1fr
     "op2 num num num ops" 1fr
@@ -56,11 +108,22 @@ function handleClick (e: Event) {
   align-items: center;
   justify-content: center;
   border-radius: 2px;
+  box-shadow: 2px 2px 1px #222222;
+}
+div.op {
+  background-color: #333381;
+}
+div.numpad {
+  color: #111111;
+  background-color: #CCCCCC;
+}
+div.command {
+  background-color: #111111;
 }
 .ent {
   grid-area: ent;
 }
-div.disabled {
+div.clipboard {
   cursor: not-allowed;
   color: #666666;
   background-color: #999999;
