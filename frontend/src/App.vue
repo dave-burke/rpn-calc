@@ -166,6 +166,7 @@ html, body, #app {
   font-family: 'Courier New', Courier, monospace;
   height: 100%;
   margin: 0;
+  padding: .1rem
 }
 #app {
   max-width: 20rem;

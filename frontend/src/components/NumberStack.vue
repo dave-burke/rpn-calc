@@ -22,6 +22,7 @@ const props = defineProps<{entries: Array<string> }>()
   align-items: flex-end;
   border: 1px solid #222222;
   box-shadow: inset 1px 1px 4px #999999;
+  padding: .25rem;
   margin-bottom: .25rem;
 }
 </style>
