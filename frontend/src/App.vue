@@ -10,6 +10,15 @@ function appendNumberToWip (n: number) {
   entries.value.push(wip + n)
 }
 
+function appendDecimalToWip () {
+  const wip = entries.value.pop() ?? ''
+  if (wip.includes('.') || wip === '') {
+    entries.value.push(wip)
+  } else {
+    entries.value.push(wip + '.')
+  }
+}
+
 function backspaceWip () {
   const result = entries.value.filter(it => it)
   const wip = result.pop() ?? ''
@@ -99,6 +108,9 @@ function handleButtonClick (button: string) {
       break
     case ('del'):
       backspaceWip()
+      break
+    case ('.'):
+      appendDecimalToWip()
       break
     case ('+'):
     case ('-'):
