@@ -6,7 +6,7 @@ const emit = defineEmits(['buttonClick'])
 function handleClick (e: Event) {
   const button = e.target as HTMLElement
   const text = button.innerText
-  emit('buttonClick', text)
+  emit('buttonClick', text.toLocaleLowerCase())
 }
 </script>
 
