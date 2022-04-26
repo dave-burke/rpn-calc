@@ -1,24 +1,38 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+import ButtonGrid from './components/ButtonGrid.vue'
+import NumberStack from './components/NumberStack.vue'
+
+const entries = ref(['3', '2', '1'])
 </script>
 
 <template>
-  <img
-    alt="Vue logo"
-    src="./assets/logo.png"
-  >
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <NumberStack
+    id="stack"
+    :entries="entries"
+  />
+  <ButtonGrid id="buttons" />
 </template>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+html, body, #app {
+  font-family: 'Courier New', Courier, monospace;
+  height: 100%;
+  margin: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  max-width: 20rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+#stack {
+  flex-grow: 1;
+}
+#buttons {
+  min-height: 18rem;
 }
 </style>
