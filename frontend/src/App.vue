@@ -163,12 +163,14 @@ function handleButtonClick (button: string) {
   box-sizing: border-box;
 }
 html, body, #app {
+  background-color: #F0F0F0;
   font-family: 'Courier New', Courier, monospace;
   height: 100%;
   margin: 0;
+  padding: .1rem
 }
 #app {
-  max-width: 20rem;
+  max-width: 30rem;
   margin: auto;
   display: flex;
   flex-direction: column;

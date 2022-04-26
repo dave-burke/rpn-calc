@@ -20,5 +20,11 @@ const props = defineProps<{entries: Array<string> }>()
   flex-direction: column;
   justify-content: end;
   align-items: flex-end;
+  border: 1px solid #222222;
+  box-shadow: inset 1px 1px 4px #999999;
+  background-color: #FCFCFC;
+  padding: .25rem;
+  font-size: larger;
+  margin-bottom: .25rem;
 }
 </style>

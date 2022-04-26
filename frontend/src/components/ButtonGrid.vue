@@ -62,9 +62,13 @@ function handleClick (e: Event) {
 
 <style>
 .grid {
+  cursor: default;
   display: grid;
-  color: white;
+  color: #DDDDDD;
+  font-weight: bold;
+  gap: .25rem;
   background-color: #222222;
+  padding: .25rem;
   grid-template:
     "clp clp clp cmd cmd" 1fr
     "op2 num num num ops" 1fr
@@ -74,10 +78,11 @@ function handleClick (e: Event) {
     "op2 del ent ent ent" 1fr;
 }
 .subgrid > div, .del, .ent {
-  border: 1px solid white;
+  background-color: #444444;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 2px;
 }
 .subgrid {
   display: grid;
@@ -86,6 +91,11 @@ function handleClick (e: Event) {
 }
 .clipboard {
   grid-area: clp;
+}
+.clipboard div {
+  cursor: not-allowed;
+  color: #666666;
+  background-color: #999999;
 }
 .stack {
   grid-area: cmd;
