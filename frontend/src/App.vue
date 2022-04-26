@@ -102,6 +102,7 @@ function applyOp2 (op: string) {
 }
 
 function handleButtonClick (button: string) {
+  window.navigator.vibrate(100)
   switch (button) {
     case ('enter'):
       pushWip()
