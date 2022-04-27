@@ -78,9 +78,9 @@ function handleClick (e: Event) {
     <div class="op">
       √x
     </div><div class="command">
-      del
+      Del
     </div><div class="ent command">
-      enter
+      Enter
     </div>
   </div>
 </template>
