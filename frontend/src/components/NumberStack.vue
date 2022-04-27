@@ -24,7 +24,7 @@ const props = defineProps<{entries: Array<string> }>()
   box-shadow: inset 1px 1px 4px #999999;
   background-color: #FCFCFC;
   padding-right: .25rem;
-  font-size: larger;
+  font-size: x-large;
   margin-bottom: .25rem;
 }
 </style>
