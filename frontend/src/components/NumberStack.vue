@@ -23,7 +23,7 @@ const props = defineProps<{entries: Array<string> }>()
   border: 1px solid #222222;
   box-shadow: inset 1px 1px 4px #999999;
   background-color: #FCFCFC;
-  padding: .25rem;
+  padding-right: .25rem;
   font-size: larger;
   margin-bottom: .25rem;
 }
