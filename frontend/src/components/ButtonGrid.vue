@@ -78,9 +78,9 @@ function handleClick (e: Event) {
     <div class="op">
       √x
     </div><div class="command">
-      del
+      Del
     </div><div class="ent command">
-      enter
+      Enter
     </div>
   </div>
 </template>
@@ -93,7 +93,7 @@ function handleClick (e: Event) {
   font-weight: bold;
   gap: .5rem;
   background-color: #444444;
-  padding: .5rem;
+  padding-top: .5rem;
   grid-template:
     "clp clp clp cmd cmd" 1fr
     "op2 num num num ops" 1fr

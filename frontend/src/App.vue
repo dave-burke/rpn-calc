@@ -163,16 +163,19 @@ function handleButtonClick (button: string) {
 * {
   box-sizing: border-box;
 }
-html, body, #app {
+html, body {
   background-color: #F0F0F0;
+}
+html, body, #app {
   font-family: 'Courier New', Courier, monospace;
   height: 100%;
   margin: 0;
-  padding: .1rem
 }
 #app {
+  background-color: #444444;
   max-width: 30rem;
   margin: auto;
+  padding: 0.7rem;
   display: flex;
   flex-direction: column;
 }
