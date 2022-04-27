@@ -26,5 +26,6 @@ const props = defineProps<{entries: Array<string> }>()
   padding-right: .25rem;
   font-size: x-large;
   margin-bottom: .25rem;
+  overflow-y: auto;
 }
 </style>
