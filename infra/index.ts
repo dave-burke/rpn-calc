@@ -115,6 +115,7 @@ const bucketPolicy = new aws.s3.BucketPolicy('bucketPolicy', {
 })
 
 export const recordId = record.id
+export const bucketName = siteBucket.id
 export const bucketPolicyId = bucketPolicy.id
 export const contentBucketUri = pulumi.interpolate`s3://${siteBucket.bucket}`
 export const contentBucketWebsiteEndpoint = siteBucket.websiteEndpoint
