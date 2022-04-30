@@ -5,11 +5,14 @@ const stack = pulumi.getStack()
 const subDomain = stack === 'prod' ? 'rpn' : `rpn-${stack}`
 const domain = `${subDomain}.superfun.link`
 
+const tags = { iac: 'pulumi', project: 'rpn-calc', stack }
+
 const siteBucket = new aws.s3.Bucket('siteBucket', {
   bucket: domain,
   website: {
     indexDocument: 'index.html'
-  }
+  },
+  tags
 })
 
 const hostedZone = aws.route53.getZone({
@@ -18,7 +21,8 @@ const hostedZone = aws.route53.getZone({
 
 const certificate = new aws.acm.Certificate('certificate', {
   domainName: domain,
-  validationMethod: 'DNS'
+  validationMethod: 'DNS',
+  tags
 })
 
 const certificateValidationDomain = new aws.route53.Record('dnsRecordValidation', {
@@ -82,8 +86,9 @@ const cdn = new aws.cloudfront.Distribution('cdn', {
   viewerCertificate: {
     acmCertificateArn: certificateValidation.certificateArn,
     sslSupportMethod: 'sni-only'
-  }
+  },
 
+  tags
 })
 
 const record = new aws.route53.Record('dnsRecord', {
