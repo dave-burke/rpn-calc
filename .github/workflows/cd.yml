@@ -1,4 +1,4 @@
-name: Deploy to dev
+name: Deploy to prod
 
 on:
   workflow_dispatch:
@@ -40,7 +40,7 @@ jobs:
         uses: pulumi/actions@v3
         with:
           command: up
-          stack-name: dev
+          stack-name: prod
           work-dir: infra
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
