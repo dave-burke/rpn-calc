@@ -2,6 +2,7 @@
   "recommendations": [
     "johnsoncodehk.volar",
     "editorconfig.editorconfig",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "antfu.vite"
   ]
 }
