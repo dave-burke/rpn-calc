@@ -9,6 +9,6 @@ export default defineConfig({
   test: {
     // VSCode doesn't see this and still complains :-/
     // globals: true,
-    environment: 'jsdom'
+    environment: 'happy-dom'
   }
 })
