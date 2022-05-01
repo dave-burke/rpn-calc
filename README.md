@@ -9,6 +9,7 @@ An RPN calculator that's easy to install and use from a mobile phone, even when 
 
 - [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
 - Ergonomic layout for right-handed mobile use
+- Arbitrary precision with no floating point errors (thanks, [decimal.js-light](https://github.com/MikeMcl/decimal.js-light/)!)
 
 ### Future enhancements
 
@@ -80,6 +81,7 @@ Deploy the app
 - [Vue3](https://vuejs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
+- [Vitest](https://vitest.dev/)
 
 Also, while not exactly part of the "tech stack," one of my motivations for making this was to get better at using [CSS Grid layout](https://css-tricks.com/snippets/css/complete-guide-grid/).
 
@@ -89,12 +91,11 @@ Also, while not exactly part of the "tech stack," one of my motivations for maki
 
 ### Future additions
 
-- [MathJS](https://github.com/josdejong/mathjs)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Playwright](https://playwright.dev/)
-- [Vitest](https://vitest.dev/)
 
 ## Acknowledgements
 
 - [README creator](https://readme.so)
+- [decimal.js-light](https://github.com/MikeMcl/decimal.js-light/)
 
