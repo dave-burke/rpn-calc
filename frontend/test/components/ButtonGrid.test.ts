@@ -3,9 +3,21 @@ import { mount } from '@vue/test-utils'
 import ButtonGrid from '../../src/components/ButtonGrid.vue'
 
 test('mount component', async () => {
-  expect(ButtonGrid).toBeTruthy()
-
+  // when
   const wrapper = mount(ButtonGrid)
 
-  expect(wrapper.text()).toContain('1')
+  // then
+  expect(wrapper.text()).toContain('Enter')
+})
+
+test('emit events', async () => {
+  // given
+  const wrapper = mount(ButtonGrid)
+  const enterButton = wrapper.find('.ent')
+
+  // when
+  await enterButton.trigger('click')
+
+  // then
+  expect(wrapper.emitted()).toHaveProperty('buttonClick')
 })
