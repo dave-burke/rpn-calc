@@ -4,7 +4,7 @@ import NumberStack from '../../src/components/NumberStack.vue'
 
 test('mount component', async () => {
   // given
-  const entries = [1, 2, 3]
+  const entries = ['1', '2', '3']
 
   // when
   const wrapper = mount(NumberStack, {
