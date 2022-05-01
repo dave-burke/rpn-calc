@@ -17,7 +17,7 @@ const props = defineProps<{entries: string[] }>()
 <style>
 .number-stack {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: end;
   align-items: flex-end;
