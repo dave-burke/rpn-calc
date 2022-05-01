@@ -64,7 +64,7 @@ Build the app
 Deploy the app
 
 ```
-  aws s3 sync --acl public-read --follow-symlinks --delete frontend/dist [your S3 bucket URL]
+  ./deploy-dev.sh
 ```
 
 ### Recommended IDE Setup
