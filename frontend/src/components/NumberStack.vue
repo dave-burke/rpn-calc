@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
-const props = defineProps<{entries: Array<string> }>()
+const props = defineProps<{entries: string[] }>()
+
 </script>
 <template>
   <div class="number-stack">
