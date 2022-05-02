@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import rpn from '../../src/services/rpn'
 
+// These are mostly 'happy path' tests, because the point is not to validate the
+// underlying math, which we trust decimal.js to do correctly.
+
 describe('rpn', () => {
   // Remember, we use push and pop, so
   // - 'wip' is the last item
@@ -243,6 +246,77 @@ describe('rpn', () => {
 
       // when
       const result = rpn.squareRoot(stack)
+
+      // then
+      expect(result).toEqual(['5', ''])
+    })
+  })
+  describe('add', () => {
+    it('avoids common floating point errors', () => {
+      // given
+      const stack = ['0.1', '0.2']
+
+      // when
+      const result = rpn.add(stack)
+
+      // then
+      expect(result).toEqual(['0.3', ''])
+    })
+  })
+  describe('subtract', () => {
+    it('subtracts the last number from the penultimate number', () => {
+      // given
+      const stack = ['5', '2']
+
+      // when
+      const result = rpn.subtract(stack)
+
+      // then
+      expect(result).toEqual(['3', ''])
+    })
+  })
+  describe('multiply', () => {
+    it('multiplies the last two numbers', () => {
+      // given
+      const stack = ['5', '2']
+
+      // when
+      const result = rpn.multiply(stack)
+
+      // then
+      expect(result).toEqual(['10', ''])
+    })
+  })
+  describe('divide', () => {
+    it('divides the penultimate number by the last number', () => {
+      // given
+      const stack = ['10', '5']
+
+      // when
+      const result = rpn.divide(stack)
+
+      // then
+      expect(result).toEqual(['2', ''])
+    })
+  })
+  describe('pow', () => {
+    it('raises the penultimate number to the power of the last number', () => {
+      // given
+      const stack = ['3', '4']
+
+      // when
+      const result = rpn.pow(stack)
+
+      // then
+      expect(result).toEqual(['81', ''])
+    })
+    // TODO This actually fails! decimal.js-light returns 4.9999999999999
+    it.skip('handles fractional exponents', () => {
+      // given
+      const stack = ['25', '0.5']
+
+      // when
+      const result = rpn.pow(stack)
 
       // then
       expect(result).toEqual(['5', ''])
