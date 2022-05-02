@@ -85,7 +85,7 @@ export default {
   invert: (stack: string[]) => op1(stack, (x) => new Decimal(1).dividedBy(x)),
   timesTen: (stack: string[]) => op1(stack, (x) => x.times(new Decimal(10))),
   overTen: (stack: string[]) => op1(stack, (x) => x.dividedBy(new Decimal(10))),
-  square: (stack: string[]) => op1(stack, (x) => x.squareRoot()),
+  squareRoot: (stack: string[]) => op1(stack, (x) => x.squareRoot()),
   add: (stack: string[]) => op2(stack, (a, b) => b.plus(a)),
   subtract: (stack: string[]) => op2(stack, (a, b) => b.minus(a)),
   multiply: (stack: string[]) => op2(stack, (a, b) => b.times(a)),

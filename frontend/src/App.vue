@@ -31,7 +31,7 @@ function handleButtonClick (button: string) {
     case ('1/x'): apply(rpn.invert); break
     case ('*10'): apply(rpn.timesTen); break
     case ('/10'): apply(rpn.overTen); break
-    case ('√x'): apply(rpn.square); break
+    case ('√x'): apply(rpn.squareRoot); break
     case ('drop'): apply(rpn.drop); break
     case ('0'):
     case ('1'):
