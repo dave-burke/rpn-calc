@@ -168,4 +168,84 @@ describe('rpn', () => {
       expect(result).toEqual(stack)
     })
   })
+  describe('negate', () => {
+    it('turns a negative number positive', () => {
+      // given
+      const stack = ['-1', '']
+
+      // when
+      const result = rpn.negate(stack)
+
+      // then
+      expect(result).toEqual(['1', ''])
+    })
+    it('turns a positive number negative', () => {
+      // given
+      const stack = ['1', '']
+
+      // when
+      const result = rpn.negate(stack)
+
+      // then
+      expect(result).toEqual(['-1', ''])
+    })
+  })
+  describe('invert', () => {
+    it('inverts an integer', () => {
+      // given
+      const stack = ['2', '']
+
+      // when
+      const result = rpn.invert(stack)
+
+      // then
+      expect(result).toEqual(['0.5', ''])
+    })
+    it('inverts a fraction', () => {
+      // given
+      const stack = ['.5', '']
+
+      // when
+      const result = rpn.invert(stack)
+
+      // then
+      expect(result).toEqual(['2', ''])
+    })
+  })
+  describe('timesTen', () => {
+    it('multiplies by ten', () => {
+      // given
+      const stack = ['1']
+
+      // when
+      const result = rpn.timesTen(stack)
+
+      // then
+      expect(result).toEqual(['10', ''])
+    })
+  })
+  describe('overTen', () => {
+    it('divides by ten', () => {
+      // given
+      const stack = ['10']
+
+      // when
+      const result = rpn.overTen(stack)
+
+      // then
+      expect(result).toEqual(['1', ''])
+    })
+  })
+  describe('squareRoot', () => {
+    it('calculates the square root', () => {
+      // given
+      const stack = ['25']
+
+      // when
+      const result = rpn.squareRoot(stack)
+
+      // then
+      expect(result).toEqual(['5', ''])
+    })
+  })
 })
