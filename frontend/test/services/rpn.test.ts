@@ -28,4 +28,134 @@ describe('rpn', () => {
       expect(result[0]).toEqual('12')
     })
   })
+  describe('appendDecimalToWip', () => {
+    it("appends a decimal if there isn't one already", () => {
+      // given
+      const stack = ['1']
+
+      // when
+      const result = rpn.appendDecimalToWip(stack)
+
+      // then
+      expect(result[0]).toEqual('1.')
+    })
+    it('does not append a decimal if one is already present', () => {
+      // given
+      const stack = ['1.']
+
+      // when
+      const result = rpn.appendDecimalToWip(stack)
+
+      // then
+      expect(result[0]).toEqual('1.')
+    })
+  })
+  describe('backspaceWip', () => {
+    it('deletes a digit', () => {
+      // given
+      const stack = ['1']
+
+      // when
+      const result = rpn.backspaceWip(stack)
+
+      // then
+      expect(result).toEqual([''])
+    })
+    it('does nothing if wip is empty', () => {
+      // given
+      const stack = ['']
+
+      // when
+      const result = rpn.backspaceWip(stack)
+
+      // then
+      expect(result).toEqual(stack)
+    })
+  })
+  describe('pushWip', () => {
+    it('does nothing if the top entry is empty', () => {
+      // given
+      const stack = ['1', '']
+
+      // when
+      const result = rpn.pushWip(stack)
+
+      // then
+      expect(result).toEqual(stack)
+    })
+    it('adds an empty entry if the top entry has a value', () => {
+      // given
+      const stack = ['1', '2']
+
+      // when
+      const result = rpn.pushWip(stack)
+
+      // then
+      expect(result).toEqual(['1', '2', ''])
+    })
+  })
+  describe('drop', () => {
+    it('drops the top entry ignoring empty values', () => {
+      // given
+      const stack = ['1', '2', '']
+
+      // when
+      const result = rpn.drop(stack)
+
+      // then
+      expect(result).toEqual(['1', ''])
+    })
+    it('drops the top entry if non-empty', () => {
+      // given
+      const stack = ['1', '2']
+
+      // when
+      const result = rpn.drop(stack)
+
+      // then
+      expect(result).toEqual(['1', ''])
+    })
+    it('does not drop the last empty value', () => {
+      // given
+      const stack = ['']
+
+      // when
+      const result = rpn.drop(stack)
+
+      // then
+      expect(result).toEqual([''])
+    })
+  })
+  describe('swap', () => {
+    it('swaps the top two values', () => {
+      // given
+      const stack = ['1', '2', '3']
+
+      // when
+      const result = rpn.swap(stack)
+
+      // then
+      expect(result).toEqual(['1', '3', '2', ''])
+    })
+    it('swaps the top two values ignoring empty', () => {
+      // given
+      const stack = ['1', '2', '3', '']
+
+      // when
+      const result = rpn.swap(stack)
+
+      // then
+      expect(result).toEqual(['1', '3', '2', ''])
+    })
+    it('does nothing when there are less than two values', () => {
+      // given
+      const stack = ['1', '']
+
+      // when
+      const result = rpn.swap(stack)
+
+      // then
+      expect(result).toEqual(stack)
+    })
+  })
 })
