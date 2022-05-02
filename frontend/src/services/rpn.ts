@@ -10,7 +10,7 @@ function appendNumberToWip (stack: string[], x: string): string[] {
 function appendDecimalToWip (stack: string[]): string[] {
   const result = [...stack]
   const wip = result.pop() ?? ''
-  if (wip.includes('.') || wip === '') {
+  if (wip.includes('.')) {
     result.push(wip)
   } else {
     result.push(wip + '.')

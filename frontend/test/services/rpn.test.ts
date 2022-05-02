@@ -49,6 +49,16 @@ describe('rpn', () => {
       // then
       expect(result[0]).toEqual('1.')
     })
+    it('appends a decimal to an empty string', () => {
+      // given
+      const stack = ['']
+
+      // when
+      const result = rpn.appendDecimalToWip(stack)
+
+      // then
+      expect(result).toEqual(['.'])
+    })
   })
   describe('backspaceWip', () => {
     it('deletes a digit', () => {
