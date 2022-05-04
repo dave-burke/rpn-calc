@@ -9,6 +9,7 @@ export default defineConfig({
   test: {
     // VSCode doesn't see this and still complains :-/
     // globals: true,
-    environment: 'happy-dom'
+    environment: 'happy-dom',
+    include: ['test/**/*.test.ts'],
   }
 })
