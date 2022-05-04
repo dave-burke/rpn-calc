@@ -17,69 +17,165 @@ function handleClick (e: Event) {
   >
     <div class="clipboard">
       Cut
-    </div><div class="clipboard">
+    </div>
+    <div class="clipboard">
       Copy
     </div> <div class="clipboard">
       Paste
-    </div><div class="command">
+    </div>
+    <div
+      id="button-drop"
+      class="command"
+    >
       Drop
-    </div><div class="command">
+    </div>
+    <div
+      id="button-swap"
+      class="command"
+    >
       Swap
     </div>
 
-    <div class="op">
+    <div
+      id="button-invert"
+      class="op"
+    >
       1/x
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-seven"
+      class="numpad"
+    >
       7
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-eight"
+      class="numpad"
+    >
       8
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-nine"
+      class="numpad"
+    >
       9
-    </div><div class="op">
+    </div>
+    <div
+      id="button-plus"
+      class="op"
+    >
       +
     </div>
 
-    <div class="op">
+    <div
+      id="button-times10"
+      class="op"
+    >
       *10
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-four"
+      class="numpad"
+    >
       4
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-five"
+      class="numpad"
+    >
       5
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-six"
+      class="numpad"
+    >
       6
-    </div><div class="op">
+    </div>
+    <div
+      id="button-minus"
+      class="op"
+    >
       -
     </div>
 
-    <div class="op">
+    <div
+      id="button-over10"
+      class="op"
+    >
       /10
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-one"
+      class="numpad"
+    >
       1
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-two"
+      class="numpad"
+    >
       2
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-three"
+      class="numpad"
+    >
       3
-    </div><div class="op">
+    </div>
+    <div
+      id="button-multiply"
+      class="op"
+    >
       *
     </div>
 
-    <div class="op">
+    <div
+      id="button-pow"
+      class="op"
+    >
       X^N
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-zero"
+      class="numpad"
+    >
       0
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-dot"
+      class="numpad"
+    >
       .
-    </div><div class="numpad">
+    </div>
+    <div
+      id="button-negate"
+      class="numpad"
+    >
       (-)
-    </div><div class="op">
+    </div>
+    <div
+      id="button-divide"
+      class="op"
+    >
       /
     </div>
 
-    <div class="op">
+    <div
+      id="button-square-root"
+      class="op"
+    >
       √x
-    </div><div class="command">
+    </div>
+    <div
+      id="button-del"
+      class="command"
+    >
       Del
-    </div><div class="ent command">
+    </div>
+    <div
+      id="button-enter"
+      class="ent command"
+    >
       Enter
     </div>
   </div>
