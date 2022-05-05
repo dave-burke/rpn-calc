@@ -124,5 +124,6 @@ export const bucketName = siteBucket.id
 export const bucketPolicyId = bucketPolicy.id
 export const contentBucketUri = pulumi.interpolate`s3://${siteBucket.bucket}`
 export const contentBucketWebsiteEndpoint = siteBucket.websiteEndpoint
+export const distributionId = cdn.id
 export const cloudFrontDomain = cdn.domainName
 export const targetDomainEndpoint = `https://${domain}/`
