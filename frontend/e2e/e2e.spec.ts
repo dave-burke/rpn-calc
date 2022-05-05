@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test('test decimal add', async ({ page }) => {
-  await page.goto('http://localhost:3000/')
+  await page.goto('/')
 
   await page.locator('#button-dot').click()
   await page.locator('#button-one').click()
