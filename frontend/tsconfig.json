@@ -11,7 +11,10 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "types": [
+      "vite-plugin-pwa/client"
+    ]
   },
   "include": [
     "src/**/*.ts",
