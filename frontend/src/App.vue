@@ -16,7 +16,7 @@ function append (x: string) {
 }
 
 function handleButtonClick (button: string) {
-  window.navigator.vibrate(3)
+  window.navigator.vibrate(5)
   switch (button) {
     case ('enter'): apply(rpn.pushWip); break
     case ('del'): apply(rpn.backspaceWip); break
