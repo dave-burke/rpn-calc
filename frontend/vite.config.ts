@@ -11,8 +11,8 @@ export default defineConfig({
     includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'RPN Calc',
-        short_name: 'RPN Calculator',
-        description: 'A stack-based calculator that uses Reverse Polish Notation.',
+        short_name: 'RPN',
+        description: 'A stack-based calculator that uses postfix ("Reverse Polish") notation.',
         theme_color: '#444444',
         icons: [
           {
