@@ -15,6 +15,18 @@ function apply (op: StackTransformation): void {
   stack.value = history.append(currentNode, newStack)
 }
 
+function undo (): void {
+  stack.value = history.back(stack.value)
+}
+
+function redo (): void {
+  stack.value = history.forward(stack.value)
+}
+
+function clear (): void {
+  stack.value = history.append(stack.value, [''])
+}
+
 function append (x: string) {
   stack.value.data = rpn.appendNumberToWip(stack.value.data, x)
 }
@@ -22,6 +34,9 @@ function append (x: string) {
 function handleButtonClick (button: string) {
   window.navigator.vibrate(5)
   switch (button) {
+    case ('clear'): clear(); break
+    case ('undo'): undo(); break
+    case ('redo'): redo(); break
     case ('enter'): apply(rpn.pushWip); break
     case ('del'): apply(rpn.backspaceWip); break
     case ('.'): apply(rpn.appendDecimalToWip); break

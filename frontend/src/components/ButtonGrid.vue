@@ -15,13 +15,13 @@ function handleClick (e: Event) {
     class="grid"
     @click="handleClick"
   >
-    <div class="clipboard">
-      Cut
+    <div class="command">
+      Clear
     </div>
-    <div class="clipboard">
-      Copy
-    </div> <div class="clipboard">
-      Paste
+    <div class="command">
+      Undo
+    </div> <div class="command">
+      Redo
     </div>
     <div
       id="button-drop"
@@ -191,7 +191,7 @@ function handleClick (e: Event) {
   background-color: #444444;
   padding-top: .5rem;
   grid-template:
-    "clp clp clp cmd cmd" 1fr
+    "clp cmd cmd cmd cmd" 1fr
     "op2 num num num ops" 1fr
     "op2 num num num ops" 1fr
     "op2 num num num ops" 1fr
@@ -219,7 +219,7 @@ div.command {
 .ent {
   grid-area: ent;
 }
-div.clipboard {
+div.na {
   cursor: not-allowed;
   color: #666666;
   background-color: #999999;
