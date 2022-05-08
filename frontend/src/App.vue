@@ -1,18 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import Node from './services/Node'
+import history from './services/history'
 import rpn from './services/rpn'
 import ButtonGrid from './components/ButtonGrid.vue'
 import NumberStack from './components/NumberStack.vue'
 
-const entries = ref([''])
+const stack = ref(new Node<string[]>(['']))
 
-type tfn = (entries: string[]) => string[]
-function apply (op: tfn): void {
-  entries.value = op(entries.value)
+type StackTransformation = (entries: string[]) => string[]
+function apply (op: StackTransformation): void {
+  const currentNode = stack.value
+  const newStack = op(currentNode.data)
+  stack.value = history.append(currentNode, newStack)
 }
 
 function append (x: string) {
-  entries.value = rpn.appendNumberToWip(entries.value, x)
+  stack.value.data = rpn.appendNumberToWip(stack.value.data, x)
 }
 
 function handleButtonClick (button: string) {
@@ -55,7 +59,7 @@ function handleButtonClick (button: string) {
 <template>
   <NumberStack
     id="stack"
-    :entries="entries"
+    :entries="stack.data"
   />
   <ButtonGrid
     id="buttons"
