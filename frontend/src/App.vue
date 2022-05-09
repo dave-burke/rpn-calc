@@ -27,10 +27,6 @@ function clear (): void {
   stack.value = history.append(stack.value, [''])
 }
 
-function append (x: string) {
-  stack.value.data = rpn.appendNumberToWip(stack.value.data, x)
-}
-
 function handleButtonClick (button: string) {
   window.navigator.vibrate(5)
   switch (button) {
@@ -62,7 +58,7 @@ function handleButtonClick (button: string) {
     case ('7'):
     case ('8'):
     case ('9'):
-      append(button)
+      apply((stack) => rpn.appendNumberToWip(stack, button))
       break
     default:
       console.log(`Unknown button ${button}`)
