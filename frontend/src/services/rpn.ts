@@ -26,7 +26,19 @@ function backspaceWip (stack: string[]): string[] {
 }
 
 function pushWip (stack: string[]): string[] {
-  const result = stack.filter(it => it)
+  const result = [...stack]
+  const top = result.pop()
+  if (top === undefined) {
+    // empty stack -- this shouldn't happen, but if it does just push an empty string.
+  } else if (top === '') {
+    // no wip
+    if (result.length > 0) {
+      // duplicate last value
+      result.push(result[result.length - 1])
+    } // else there's no value to duplicate
+  } else {
+    result.push(top)
+  }
   result.push('')
   return result
 }

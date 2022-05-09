@@ -86,7 +86,17 @@ describe('rpn', () => {
     })
   })
   describe('pushWip', () => {
-    it('does nothing if the top entry is empty', () => {
+    it('does nothing to an empty stack', () => {
+      // given
+      const stack = ['']
+
+      // when
+      const result = rpn.pushWip(stack)
+
+      // then
+      expect(result).toEqual(stack)
+    })
+    it('duplicates second value if the first entry has no value', () => {
       // given
       const stack = ['1', '']
 
@@ -94,7 +104,7 @@ describe('rpn', () => {
       const result = rpn.pushWip(stack)
 
       // then
-      expect(result).toEqual(stack)
+      expect(result).toEqual(['1', '1', ''])
     })
     it('adds an empty entry if the top entry has a value', () => {
       // given
