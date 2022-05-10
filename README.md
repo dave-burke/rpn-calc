@@ -57,6 +57,8 @@ Browse to http://localhost:3000
 
 Deploy to AWS (you need the [Pulumi](https://www.pulumi.com/) CLI and the the [AWS CLI](https://aws.amazon.com/cli/) installed and configured).
 
+You will also need to update the domain in `infra/index.ts` to something you own.
+
 ```
   ./deploy-dev.sh
 ```
