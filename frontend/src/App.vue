@@ -1,23 +1,38 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import Node from './services/Node'
+import history from './services/history'
 import rpn from './services/rpn'
 import ButtonGrid from './components/ButtonGrid.vue'
 import NumberStack from './components/NumberStack.vue'
 
-const entries = ref([''])
+const stack = ref(new Node<string[]>(['']))
 
-type tfn = (entries: string[]) => string[]
-function apply (op: tfn): void {
-  entries.value = op(entries.value)
+type StackTransformation = (entries: string[]) => string[]
+function apply (op: StackTransformation): void {
+  const currentNode = stack.value
+  const newStack = op(currentNode.data)
+  stack.value = history.append(currentNode, newStack)
 }
 
-function append (x: string) {
-  entries.value = rpn.appendNumberToWip(entries.value, x)
+function undo (): void {
+  stack.value = history.back(stack.value)
+}
+
+function redo (): void {
+  stack.value = history.forward(stack.value)
+}
+
+function clear (): void {
+  stack.value = history.append(stack.value, [''])
 }
 
 function handleButtonClick (button: string) {
   window.navigator.vibrate(5)
   switch (button) {
+    case ('clear'): clear(); break
+    case ('undo'): undo(); break
+    case ('redo'): redo(); break
     case ('enter'): apply(rpn.pushWip); break
     case ('del'): apply(rpn.backspaceWip); break
     case ('.'): apply(rpn.appendDecimalToWip); break
@@ -43,7 +58,7 @@ function handleButtonClick (button: string) {
     case ('7'):
     case ('8'):
     case ('9'):
-      append(button)
+      apply((stack) => rpn.appendNumberToWip(stack, button))
       break
     default:
       console.log(`Unknown button ${button}`)
@@ -55,7 +70,7 @@ function handleButtonClick (button: string) {
 <template>
   <NumberStack
     id="stack"
-    :entries="entries"
+    :entries="stack.data"
   />
   <ButtonGrid
     id="buttons"
