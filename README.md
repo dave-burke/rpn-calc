@@ -8,16 +8,22 @@ An RPN calculator that's easy to install and use from a mobile phone, even when 
 ## Features
 
 - [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
+- Offline, installable [Progressive Web App](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) (PWA)
 - Ergonomic layout for right-handed mobile use
 - Arbitrary precision with no floating point errors (thanks, [decimal.js-light](https://github.com/MikeMcl/decimal.js-light/)!)
-
-### Future enhancements
-
-- Offline first PWA (Possibly using [Vite PWA Plugin](https://vite-plugin-pwa.netlify.app/))
+- Undo/Redo
 
 ## Contributing
 
-Contributions will be welcome after the initial release.
+This app is meant to be simple without much feature bloat, but if you have an idea feel free to create a new issue to discuss it. I may ask you to create a PR.
+
+If you want to report a bug, please create a new issue that includes:
+
+1. Steps to reproduce the problem beginning with an empty stack
+1. The expected resulting state
+1. The actual resulting state
+
+or better yet, write some test cases that demonstrate the problem and submit a PR that makes them pass :grin:.
 
 ### Run Locally
 
@@ -49,19 +55,9 @@ Browse to http://localhost:3000
 
 ### Deploy
 
-Deploy AWS infrastructure (you need the [Pulumi](https://www.pulumi.com/) CLI installed and configured)
+Deploy to AWS (you need the [Pulumi](https://www.pulumi.com/) CLI and the the [AWS CLI](https://aws.amazon.com/cli/) installed and configured).
 
-```bash
-  pulumi up
-```
-
-Build the app
-
-```
-  npm run build --workspace=frontend
-```
-
-Deploy the app
+You will also need to update the domain in `infra/index.ts` to something you own.
 
 ```
   ./deploy-dev.sh
@@ -73,26 +69,18 @@ Deploy the app
 - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 - [EditorConfig](https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Vite](https://marketplace.visualstudio.com/items?itemName=antfu.vite)
 
 ## Tech Stack
 
-### Frontend
-
+- [Pulumi](https://www.pulumi.com/)
 - [Vue3](https://vuejs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - [Vitest](https://vitest.dev/)
+- [Playwright](https://playwright.dev/)
 
 Also, while not exactly part of the "tech stack," one of my motivations for making this was to get better at using [CSS Grid layout](https://css-tricks.com/snippets/css/complete-guide-grid/).
-
-### Infrastructure
-
-- [Pulumi](https://www.pulumi.com/)
-
-### Future additions
-
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Playwright](https://playwright.dev/)
 
 ## Acknowledgements
 
