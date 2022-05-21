@@ -79,6 +79,13 @@ function handleButtonClick (button: string) {
 </template>
 
 <style>
+@font-face {
+    font-family: 'dejavu_sans';
+    src: url('resources/DejaVuSans-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -86,7 +93,7 @@ html, body {
   background-color: #F0F0F0;
 }
 html, body, #app {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'dejavu_sans', sans;
   height: 100%;
   margin: 0;
 }
