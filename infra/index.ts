@@ -12,6 +12,8 @@ const siteBucket = new aws.s3.Bucket('siteBucket', {
   website: {
     indexDocument: 'index.html'
   },
+  // Any deployed files can be re-created from the source
+  forceDestroy: true,
   tags
 })
 
