@@ -35,7 +35,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - name: Deploy infrastructure to dev
+      - name: Deploy infrastructure to prod
         id: pulumi
         uses: pulumi/actions@v3
         with:
