@@ -5,5 +5,8 @@
   "workspaces": [
     "frontend",
     "infra"
-  ]
+  ],
+  "scripts": {
+    "check": "cd frontend && npm run lint && npx vitest --run && npm run build && ../infra && npm run lint"
+  }
 }
