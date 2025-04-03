@@ -72,7 +72,7 @@ function handleButtonClick (button: string) {
 <template>
   <NumberStack
     id="stack"
-    :entries="stack.data"
+    v-model="stack.data"
   />
   <ButtonGrid
     id="buttons"

@@ -1,15 +1,27 @@
 <script setup lang="ts">
-const props = defineProps<{entries: string[] }>()
+const props = defineProps<{modelValue: string[]}>()
+const emit = defineEmits(['update:modelValue'])
+
+function update (n: string, index: number) {
+  const entries = [...props.modelValue]
+  entries[index] = n
+  emit('update:modelValue', entries)
+}
 
 </script>
 <template>
   <div class="number-stack">
-    <div
-      v-for="n in props.entries"
-      :key="n"
+    <template
+      v-for="(n, index) in props.modelValue"
+      :key="index"
     >
-      {{ n }}
-    </div>
+      <input
+        v-if="index !== props.modelValue.length - 1 || n !== ''"
+        type="text"
+        :value="n"
+        @input="update($event.target.value, index)"
+      >
+    </template>
   </div>
 </template>
 <style>
@@ -23,8 +35,14 @@ const props = defineProps<{entries: string[] }>()
   box-shadow: inset 1px 1px 4px #999999;
   background-color: #FCFCFC;
   padding-right: .25rem;
-  font-size: x-large;
   margin-bottom: .25rem;
   overflow-y: auto;
+}
+.number-stack input {
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: right;
+  font-size: xx-large;
 }
 </style>
