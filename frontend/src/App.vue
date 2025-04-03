@@ -28,7 +28,7 @@ function clear (): void {
 }
 
 function handleButtonClick (button: string) {
-  window.navigator.vibrate(5)
+  window.navigator.vibrate(25)
   switch (button) {
     case ('clear'): clear(); break
     case ('undo'): undo(); break
