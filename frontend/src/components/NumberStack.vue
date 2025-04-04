@@ -49,13 +49,26 @@ function handleBlur (value: string, index: number) {
   emit('update:modelValue', entries)
 }
 
+function handleDelete (index: number) {
+  const entries = [...props.modelValue]
+  entries.splice(index, 1)
+  emit('update:modelValue', entries)
+}
+
 </script>
 <template>
   <div class="number-stack">
-    <template
+    <div
       v-for="(n, index) in props.modelValue"
       :key="index"
+      class="number-row"
     >
+      <button
+        v-if="n.length > 0"
+        @click="handleDelete(index)"
+      >
+        ❌
+      </button>
       <input
         v-if="index !== props.modelValue.length - 1 || n !== ''"
         type="text"
@@ -63,7 +76,7 @@ function handleBlur (value: string, index: number) {
         @input="handleInput($event.target.value, index)"
         @blur="handleBlur($event.target.value, index)"
       >
-    </template>
+    </div>
   </div>
 </template>
 <style>
@@ -80,11 +93,20 @@ function handleBlur (value: string, index: number) {
   margin-bottom: .25rem;
   overflow-y: auto;
 }
-.number-stack input {
+.number-row {
+  display: flex;
+  width: 100%;
+}
+input {
   width: 100%;
   border: none;
   outline: none;
+  background-color: #FCFCFC;
   text-align: right;
   font-size: xx-large;
+}
+button {
+  background: none;
+  border: none;
 }
 </style>
