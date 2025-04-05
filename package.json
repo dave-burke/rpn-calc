@@ -7,6 +7,6 @@
     "infra"
   ],
   "scripts": {
-    "check": "cd frontend && npm run lint && npx vitest --run && npm run build && cd ../infra && npm run lint"
+    "check": "cd frontend && npx eslint . && npx prettier src/ && npx vitest --run && npm run build && cd ../infra && npm run lint"
   }
 }
