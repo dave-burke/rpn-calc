@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import NumberInput from './NumberInput.vue'
+import DeleteIcon from './DeleteIcon.vue'
 const props = defineProps<{modelValue: string[]}>()
 const emit = defineEmits(['update:modelValue'])
 
@@ -39,7 +40,7 @@ function handleDelete (index: number) {
         v-if="n.length > 0"
         @click="handleDelete(index)"
       >
-        ❌
+        <DeleteIcon color="DarkGray" />
       </button>
       <NumberInput
         v-if="index !== props.modelValue.length - 1 || n !== ''"
