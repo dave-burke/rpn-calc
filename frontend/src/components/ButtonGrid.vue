@@ -6,7 +6,10 @@ const emit = defineEmits(['buttonClick'])
 function handleClick (e: Event) {
   const button = e.target as HTMLElement
   const text = button.innerText
-  emit('buttonClick', text.toLocaleLowerCase())
+  // ignore clicks between buttons (when inner text is the entire grid)
+  if (!text.includes('\n')) {
+    emit('buttonClick', text.toLocaleLowerCase())
+  }
 }
 </script>
 

@@ -8,11 +8,13 @@ test('mount component', async () => {
 
   // when
   const wrapper = mount(NumberStack, {
-    props: { entries }
+    props: { modelValue: entries }
   })
 
   // then
-  expect(wrapper.text()).toContain('1')
-  expect(wrapper.text()).toContain('2')
-  expect(wrapper.text()).toContain('3')
+  const inputs = wrapper.findAll('input')
+  expect(inputs).toHaveLength(3)
+  expect(inputs[0].element.value).toBe('1')
+  expect(inputs[1].element.value).toBe('2')
+  expect(inputs[2].element.value).toBe('3')
 })
