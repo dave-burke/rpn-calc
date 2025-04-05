@@ -1,8 +1,10 @@
 {
   "recommendations": [
-    "johnsoncodehk.volar",
-    "editorconfig.editorconfig",
+    "Vue.volar",
+    "vitest.explorer",
+    "ms-playwright.playwright",
     "dbaeumer.vscode-eslint",
-    "antfu.vite"
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode"
   ]
 }

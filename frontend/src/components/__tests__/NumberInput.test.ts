@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import NumberInput from '../../src/components/NumberInput.vue'
+import NumberInput from '../NumberInput.vue'
 
 describe('NumberInput', () => {
   it('renders with initial modelValue', () => {
     const wrapper = mount(NumberInput, {
-      props: { modelValue: '123' }
+      props: { modelValue: '123' },
     })
     const input = wrapper.find('input')
     expect((input.element as HTMLInputElement).value).toBe('123')
@@ -13,7 +13,7 @@ describe('NumberInput', () => {
 
   it('emits trimmed numeric input via update:modelValue', async () => {
     const wrapper = mount(NumberInput, {
-      props: { modelValue: '0' }
+      props: { modelValue: '0' },
     })
 
     const input = wrapper.find('input')
@@ -29,7 +29,7 @@ describe('NumberInput', () => {
 
   it('ignores non-numeric input and does not change value', async () => {
     const wrapper = mount(NumberInput, {
-      props: { modelValue: '123' }
+      props: { modelValue: '123' },
     })
 
     const input = wrapper.find('input')
@@ -42,7 +42,7 @@ describe('NumberInput', () => {
 
   it('emits blur event with the raw value', async () => {
     const wrapper = mount(NumberInput, {
-      props: { modelValue: '789' }
+      props: { modelValue: '789' },
     })
 
     const input = wrapper.find('input')
@@ -55,7 +55,7 @@ describe('NumberInput', () => {
 
   it('does not emit blur if input is empty', async () => {
     const wrapper = mount(NumberInput, {
-      props: { modelValue: '' }
+      props: { modelValue: '' },
     })
 
     const input = wrapper.find('input')

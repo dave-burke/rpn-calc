@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('test decimal add', async ({ page }) => {
+test('decimal add', async ({ page }) => {
   await page.goto('/')
 
   await page.locator('#button-dot').click()
@@ -10,5 +10,5 @@ test('test decimal add', async ({ page }) => {
   await page.locator('#button-two').click()
   await page.locator('#button-plus').click()
 
-  await expect(page.locator('#stack')).toHaveText('0.3')
+  await expect(page.locator('#stack input')).toHaveValue('0.3')
 })

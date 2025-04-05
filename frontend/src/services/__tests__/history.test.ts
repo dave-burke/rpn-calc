@@ -1,5 +1,5 @@
-import Node from '../../src/services/Node'
-import history from '../../src/services/history'
+import Node from '../Node'
+import history from '../history'
 import { describe, expect, it } from 'vitest'
 
 describe('history', () => {
