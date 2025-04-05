@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import NumberStack from '../../src/components/NumberStack.vue'
+import NumberStack from '../NumberStack.vue'
 
 test('mount component', async () => {
   // given
@@ -8,7 +8,7 @@ test('mount component', async () => {
 
   // when
   const wrapper = mount(NumberStack, {
-    props: { modelValue: entries }
+    props: { modelValue: entries },
   })
 
   // then

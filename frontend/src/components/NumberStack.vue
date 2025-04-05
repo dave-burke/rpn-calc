@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import NumberInput from './NumberInput.vue'
 import DeleteIcon from './DeleteIcon.vue'
-const props = defineProps<{modelValue: string[]}>()
+const props = defineProps<{ modelValue: string[] }>()
 const emit = defineEmits(['update:modelValue'])
 
-function handleInput (value: string, index: number) {
+function handleInput(value: string, index: number) {
   const entries = [...props.modelValue]
   entries[index] = value
   emit('update:modelValue', entries)
 }
 
-function handleBlur (value: string, index: number) {
+function handleBlur(value: string, index: number) {
   let entries = [...props.modelValue]
   entries[index] = value
   // When the user blurs the input (just tapping somewhere else or hitting
@@ -22,24 +22,16 @@ function handleBlur (value: string, index: number) {
   emit('update:modelValue', entries)
 }
 
-function handleDelete (index: number) {
+function handleDelete(index: number) {
   const entries = [...props.modelValue]
   entries.splice(index, 1)
   emit('update:modelValue', entries)
 }
-
 </script>
 <template>
   <div class="number-stack">
-    <div
-      v-for="(n, index) in props.modelValue"
-      :key="index"
-      class="number-row"
-    >
-      <button
-        v-if="n.length > 0"
-        @click="handleDelete(index)"
-      >
+    <div v-for="(n, index) in props.modelValue" :key="index" class="number-row">
+      <button v-if="n.length > 0" @click="handleDelete(index)">
         <DeleteIcon color="DarkGray" />
       </button>
       <NumberInput
@@ -61,9 +53,9 @@ function handleDelete (index: number) {
   align-items: flex-end;
   border: 1px solid #222222;
   box-shadow: inset 1px 1px 4px #999999;
-  background-color: #FCFCFC;
-  padding-right: .25rem;
-  margin-bottom: .25rem;
+  background-color: #fcfcfc;
+  padding-right: 0.25rem;
+  margin-bottom: 0.25rem;
   overflow-y: auto;
 }
 .number-row {

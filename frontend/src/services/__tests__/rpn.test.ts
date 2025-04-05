@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import rpn from '../../src/services/rpn'
+import rpn from '../rpn'
 
 // These are mostly 'happy path' tests, because the point is not to validate the
 // underlying math, which we trust decimal.js to do correctly.

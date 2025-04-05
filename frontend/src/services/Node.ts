@@ -3,7 +3,7 @@ export default class Node<T> {
   next: Node<T> | undefined
   data: T
 
-  constructor (data: T, prev?: Node<T>, next?: Node<T>) {
+  constructor(data: T, prev?: Node<T>, next?: Node<T>) {
     this.data = data
     this.prev = prev
     this.next = next
