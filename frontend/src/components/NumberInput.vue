@@ -5,18 +5,21 @@ const props = defineProps<{modelValue: string}>()
 const emit = defineEmits(['update:modelValue', 'blur'])
 const inputEl = ref<HTMLInputElement | null>(null)
 
-function handleInput (e) {
-  const trimmed = e.target.value.trim()
-  const isNumber = !isNaN(Number(trimmed))
-  const result = isNumber ? trimmed : props.modelValue
+function handleInput (e: Event) {
+  const value = (e.target as HTMLInputElement)?.value.trim()
+  const isNumber = !isNaN(Number(value))
+  const result = isNumber ? value : props.modelValue
   emit('update:modelValue', result)
   if (inputEl.value) {
     inputEl.value.value = result
   }
 }
 
-function handleBlur (e) {
-  emit('blur', e.target.value)
+function handleBlur (e: Event) {
+  const value = (e.target as HTMLInputElement)?.value
+  if (value) {
+    emit('blur', value)
+  }
 }
 
 </script>

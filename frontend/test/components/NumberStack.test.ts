@@ -8,7 +8,7 @@ test('mount component', async () => {
 
   // when
   const wrapper = mount(NumberStack, {
-    props: { entries }
+    props: { modelValue: entries }
   })
 
   // then
